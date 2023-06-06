@@ -121,7 +121,7 @@ INSERT INTO COUREUR (id, NomCoureur, id_Equipe, id_Pays) VALUES
 (2, 'Alejandro Valverde', 2, 2);
 
 INSERT INTO TYPE_ETAPE (id, LibelléType) VALUES 
-(1, 'Montagne'),
+(1, 'Haute Montagne'),
 (2, 'Plat');
 
 INSERT INTO ETAPE (id, DateEtape, VilleDép, VilleArr, NbKm, id_Type_Etape) VALUES 

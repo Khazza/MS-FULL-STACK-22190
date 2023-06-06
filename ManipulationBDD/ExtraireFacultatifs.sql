@@ -43,7 +43,7 @@ SELECT MAX(Note) AS note_max, MIN(Note) AS note_min FROM EVALUER;
 -- Cette requête utilise les fonctions MAX et MIN pour trouver respectivement la note maximale et minimale dans la colonne "Note" de la table "EVALUER".
 
 -- Pour obtenir les moyennes de chaque étudiant dans chacune des matières :
-SELECT ETUDIANT.id, ETUDIANT.Nom, ETUDIANT.Prenom, MATIERE.Libelle, AVG(EVALUER.Note) AS moyenne
+SELECT ETUDIANT.id, ETUDIANT.Nom, ETUDIANT.Prenom, MATIERE.Libellé, AVG(EVALUER.Note) AS moyenne
 FROM ETUDIANT
 JOIN EVALUER ON ETUDIANT.id = EVALUER.id_Etudiant
 JOIN MATIERE ON EVALUER.id_Matiere = MATIERE.id
@@ -52,7 +52,7 @@ GROUP BY ETUDIANT.id, MATIERE.id;
 -- Elle utilise la fonction AVG pour calculer la moyenne des notes par étudiant et par matière.
 
 -- Pour obtenir les moyennes par matière :
-SELECT MATIERE.id, MATIERE.Libelle, AVG(EVALUER.Note) AS moyenne
+SELECT MATIERE.id, MATIERE.Libellé, AVG(EVALUER.Note) AS moyenne
 FROM MATIERE
 JOIN EVALUER ON MATIERE.id = EVALUER.id_Matiere
 GROUP BY MATIERE.id;
@@ -120,19 +120,19 @@ SELECT COUREUR.id, COUREUR.NomCoureur, PAYS.NomPays
 FROM COUREUR
 JOIN EQUIPE ON COUREUR.id_Equipe = EQUIPE.id
 JOIN PAYS ON COUREUR.id_Pays = PAYS.id
-WHERE EQUIPE.NomEquipe = 'Festina';
+WHERE EQUIPE.NomEquipe = 'Team Sky';
 -- Pour obtenir le nombre de kilomètres total du Tour de France 97 :
 
 SELECT SUM(NbKm) AS total_kilometres
 FROM ETAPE;
--- Pour obtenir le nombre de kilomètres total des étapes de type "Haute Montagne" :
 
+-- Pour obtenir le nombre de kilomètres total des étapes de type "Haute Montagne" :
 SELECT SUM(NbKm) AS total_kilometres_haute_montagne
 FROM ETAPE
 JOIN TYPE_ETAPE ON ETAPE.id_Type_Etape = TYPE_ETAPE.id
-WHERE TYPE_ETAPE.LibelleType = 'Haute Montagne';
--- Pour obtenir le classement général des coureurs (nom, code équipe, code pays et temps des coureurs) :
+WHERE TYPE_ETAPE.LibelléType = 'Haute Montagne';
 
+-- Pour obtenir le classement général des coureurs (nom, code équipe, code pays et temps des coureurs) :
 SELECT COUREUR.NomCoureur, EQUIPE.id AS code_equipe, PAYS.id AS code_pays, PARTICIPER.TempsRéalisé
 FROM COUREUR
 JOIN EQUIPE ON COUREUR.id_Equipe = EQUIPE.id
