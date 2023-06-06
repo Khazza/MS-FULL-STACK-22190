@@ -1,0 +1,47 @@
+Définition de l'agilité :
+L'agilité est une approche de gestion de projet qui privilégie le travail en équipe, la communication, la flexibilité et la livraison rapide de produits de qualité. 
+Elle a pour but de répondre plus efficacement aux attentes du client, d'adapter le produit à ses besoins changeants et d'anticiper les problèmes. 
+Elle est couramment utilisée dans le domaine du développement logiciel.
+
+
+Avantages de l'utilisation de SCRUM :
+SCRUM est une méthodologie agile qui offre plusieurs avantages :
+
+Elle permet d'adapter le produit aux besoins du client qui peuvent évoluer au cours du projet.
+Elle favorise la collaboration et la communication entre les membres de l'équipe.
+Elle permet une livraison continue de versions utilisables du produit, offrant ainsi au client la possibilité de tester et d'apporter des retours régulièrement.
+Elle facilite la détection et la correction rapide des erreurs et des problèmes.
+Elle offre plus de transparence dans le processus de développement.
+
+
+Outils pour mettre en oeuvre une approche Agile :
+Il existe de nombreux outils pour faciliter la mise en œuvre de l'agilité, parmi lesquels :
+Les outils de suivi de projet comme JIRA, Trello, Asana...
+Les outils de communication comme Slack, Microsoft Teams...
+Les outils d'intégration continue comme Jenkins, Travis CI...
+Les outils de gestion de versions comme Git...
+
+
+Sprint et intégration continue - Fonctionnement d'un sprint :
+Un sprint est une période définie pendant laquelle des tâches spécifiques doivent être complétées et prêtes à être revues. 
+
+L'intégration continue est une pratique de développement logiciel où les membres de l'équipe intègrent leur travail fréquemment, 
+généralement chaque personne soumet au moins une intégration quotidienne - ce qui conduit à plusieurs intégrations par jour. 
+Chaque intégration est vérifiée par une construction automatique (y compris le test) pour détecter les erreurs d'intégration le plus rapidement possible.
+
+
+TDD (Test Driven Development) :
+Le Test Driven Development est une technique de développement de logiciel qui repose sur un cycle court de répétitions : 
+d'abord le développeur écrit un cas de test automatisé qui définit une nouvelle fonctionnalité désirée, puis il produit le code minimum pour passer ce test, 
+et enfin il refactorise ce nouveau code aux standards appropriés.
+
+
+Scrum Master, Product Owner, BackLog :
+
+Scrum Master : C'est le facilitateur pour une équipe Scrum. Il est responsable de veiller à ce que l'équipe respecte les valeurs, 
+les pratiques et les règles de Scrum. Il aide également à résoudre les obstacles qui peuvent empêcher l'équipe de réaliser ses objectifs de sprint.
+
+Product Owner : C'est le membre de l'équipe responsable de définir les caractéristiques du produit à développer, 
+de prioriser ces caractéristiques et de les ajouter au backlog produit.
+
+Backlog : C'est une liste de toutes les fonctionnalités à développer dans un produit. Le backlog est constamment mis à jour et réorganisé en fonction des priorités du projet.
