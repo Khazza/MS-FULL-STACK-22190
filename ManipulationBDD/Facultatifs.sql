@@ -114,3 +114,28 @@ HAVING AVG(EVALUER.Note) >= (
 -- Quel est le nombre de kilomètres total du Tour de France 97 ?
 -- Quel est le nombre de kilomètres total des étapes de type "Haute Montagne" ?
 -- Quel est le classement général des coureurs (nom, code équipe, code pays et temps des coureurs)?
+
+-- Pour obtenir la composition de l'équipe Festina (numéro, nom et pays des coureurs) :
+SELECT COUREUR.id, COUREUR.NomCoureur, PAYS.NomPays
+FROM COUREUR
+JOIN EQUIPE ON COUREUR.id_Equipe = EQUIPE.id
+JOIN PAYS ON COUREUR.id_Pays = PAYS.id
+WHERE EQUIPE.NomEquipe = 'Festina';
+-- Pour obtenir le nombre de kilomètres total du Tour de France 97 :
+
+SELECT SUM(NbKm) AS total_kilometres
+FROM ETAPE;
+-- Pour obtenir le nombre de kilomètres total des étapes de type "Haute Montagne" :
+
+SELECT SUM(NbKm) AS total_kilometres_haute_montagne
+FROM ETAPE
+JOIN TYPE_ETAPE ON ETAPE.id_Type_Etape = TYPE_ETAPE.id
+WHERE TYPE_ETAPE.LibelleType = 'Haute Montagne';
+-- Pour obtenir le classement général des coureurs (nom, code équipe, code pays et temps des coureurs) :
+
+SELECT COUREUR.NomCoureur, EQUIPE.id AS code_equipe, PAYS.id AS code_pays, PARTICIPER.TempsRéalisé
+FROM COUREUR
+JOIN EQUIPE ON COUREUR.id_Equipe = EQUIPE.id
+JOIN PAYS ON COUREUR.id_Pays = PAYS.id
+JOIN PARTICIPER ON COUREUR.id = PARTICIPER.id_Coureur
+ORDER BY PARTICIPER.TempsRéalisé;
