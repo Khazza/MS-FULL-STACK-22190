@@ -69,8 +69,8 @@ WHERE d1.nodept = '31' AND d2.nodept IS NULL;
 -- titre et le même salaire que Fairant.
 SELECT nom, titre, salaire
 FROM employe
-WHERE titre = (SELECT titre FROM employe WHERE nom = 'Fairant')
-AND salaire = (SELECT salaire FROM employe WHERE nom = 'Fairant');
+WHERE titre = (SELECT titre FROM employe WHERE nom = 'Fairent')
+AND salaire = (SELECT salaire FROM employe WHERE nom = 'Fairent');
 
 -- Rechercher le numéro de département, le nom du département, le
 -- nom des employés, en affichant aussi les départements dans lesquels
