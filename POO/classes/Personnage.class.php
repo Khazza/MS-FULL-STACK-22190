@@ -52,6 +52,11 @@ class Personnage {
             $this->sexe = $sexe;
         }
     }
+
+    public function __toString() {
+        return "Nom: " . $this->nom . ", Prénom: " . $this->prenom . ", Age: " . $this->age . ", Sexe: " . $this->sexe;
+    }
+    
 }
 
 ?>
