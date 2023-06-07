@@ -79,7 +79,7 @@ class Employe {
     
         $interval = $dateEmbauche->diff($dateActuelle);
     
-        return $interval->y;  // Retourne le nombre d'années
+        return $interval->y;
     }
     
 }
