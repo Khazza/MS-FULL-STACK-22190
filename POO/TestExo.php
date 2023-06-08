@@ -3,9 +3,9 @@ include 'classes/Employe.class.php';
 include 'classes/Magasin.class.php';
 
 // Créer un nouvel employé et magasin
-$magasinParis = new Magasin("Jarditou Paris", "123 Rue de Paris", "75001", "Paris");
-$magasinParis2 = new Magasin("Jarditou Marseille", "123 Rue de Marseille", "13001", "Marseille");
-$magasinParis3 = new Magasin("Jarditou Nice", "123 Rue de Nice", "06001", "Nice");
+$magasinParis = new Magasin("Jarditou Paris", "123 Rue de Paris", "75001", "Paris", true); // true signifie qu'il y a un restaurant
+$magasinParis2 = new Magasin("Jarditou Paris2", "124 Rue de Paris", "75002", "Paris", false); // false signifie des tickets restaurants
+$magasinParis3 = new Magasin("Jarditou Nice", "123 Rue de Nice", "06001", "Nice", true);
 
 $employe1 = new Employe("Case", "Justin", "2020-06-08", "Manager", 40, "Commercial",$magasinParis);
 $employe2 = new Employe("Doe", "John", "2023-06-08", "Secraite", 40, "Commercial",$magasinParis2);
@@ -31,6 +31,9 @@ echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $em
 
 // Afficher le magasin de l'employé
 echo "Magasin de l'employé : " . $employe->getMagasin()->getNom() . "<br>";
+
+// Afficher le mode de restauration de l'employé
+echo "Mode de restauration : " . $employe->getMagasin()->getModeRestauration() . "<br>";
 
 $employe->effectuerTransfert();
 

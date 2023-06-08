@@ -1,17 +1,21 @@
 <?php
 class Magasin
 {
+    // Propriétés
     private $nom;
     private $adresse;
     private $codePostal;
     private $ville;
+    private $restaurant;
     
-    public function __construct($nom, $adresse, $codePostal, $ville)
+    // Construct
+    public function __construct($nom, $adresse, $codePostal, $ville, $restaurant)
     {
         $this->nom = $nom;
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this->ville = $ville;
+        $this->restaurant = $restaurant;
     }
     
     // Accesseurs
@@ -33,6 +37,10 @@ class Magasin
     public function getVille()
     {
         return $this->ville;
+    }
+
+    public function getModeRestauration() {
+        return $this->restaurant ? "Restaurant d'entreprise" : "Tickets restaurants";
     }
 }
 ?>
