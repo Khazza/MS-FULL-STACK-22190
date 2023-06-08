@@ -81,7 +81,27 @@ class Employe {
     
         return $interval->y;
     }
+
+
+    // Calcul de la prime
+    public function calculerPrime() {
+        $anciennete = $this->anneesService();
+        $prime = ($this->salaire * 0.05) + ($this->salaire * 0.02 * $anciennete);
+        return $prime;
+    }
+
+    // Émettre l'ordre de transfert
+    public function emettreOrdreDeTransfert() {
+        $dateVersement = new DateTime("now");
+        $dateCible = new DateTime("November 30");
+
+        if ($dateVersement->format('m-d') == $dateCible->format('m-d')) {
+            $montant = $this->calculerPrime();
+            echo "Ordre de transfert de " . $montant . " euros envoyé à la banque pour l'employé " . $this->nom . " " . $this->prenom . ".\n";
+        }
+    }
     
+
 }
 
 ?>
