@@ -15,54 +15,41 @@ $employe3 = new Employe("Doe", "Jane", "2018-02-12", "PDG", 40, "Commercial", $m
 // Tableau d'employés
 $employes = [$employe1, $employe2, $employe3];
 
+// Entête de la page
+echo "<h1>Liste des employés</h1>";
+
 // Parcourir et afficher les informations pour chaque employé
 foreach ($employes as $employe) {
-    echo "<strong>Employé:</strong><br>";
-    echo "Nom: " . $employe->getNom() . "<br>";
-    echo "Prénom: " . $employe->getPrenom() . "<br>";
-    echo "Date d'embauche: " . $employe->getDateEmbauche() . "<br>";
-    echo "Fonction: " . $employe->getFonction() . "<br>";
-    echo "Salaire: " . $employe->getSalaire() . "K euros<br>";
-    echo "Service: " . $employe->getService() . "<br>";
+    echo "<h2>Employé: " . $employe->getPrenom() . " " . $employe->getNom() . "</h2>";
+    echo "<ul>";
+    echo "<li>Date d'embauche: " . $employe->getDateEmbauche() . "</li>";
+    echo "<li>Fonction: " . $employe->getFonction() . "</li>";
+    echo "<li>Salaire: " . $employe->getSalaire() . "K euros</li>";
+    echo "<li>Service: " . $employe->getService() . "</li>";
+    echo "<li>L'employé travaille dans l'entreprise depuis " . $employe->anneesDeService() . " années.</li>";
+    echo "<li>Prime de " . $employe->getPrenom() . ": " . $employe->calculerPrime() . "K euros.</li>";
+    echo "<li>Magasin de l'employé : " . $employe->getMagasin()->getNom() . "</li>";
+    echo "<li>Mode de restauration : " . $employe->getMagasin()->getModeRestauration() . "</li>";
 
-    // Afficher le nombre d'années de service
-    echo "L'employé travaille dans l'entreprise depuis " . $employe->anneesDeService() . " années.<br>";
-
-    // Afficher la prime
-    echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $employe->calculerPrime() . "K euros.<br>";
-
-    // Effectuer le transfert de la prime
-    $employe->effectuerTransfert();
-
-    echo "<br>";
-
-    // Afficher le magasin associé à l'employé
-    echo "Magasin de l'employé : " . $employe->getMagasin()->getNom() . "<br>";
-
-    // Afficher le mode de restauration du magasin associé à l'employé
-    echo "Mode de restauration : " . $employe->getMagasin()->getModeRestauration() . "<br>";
-
-    // Vérifier et afficher si l'employé est éligible aux chèques-vacances
     if ($employe->peutRecevoirChequesVacances()) {
-        echo $employe->getNom() . " " . $employe->getPrenom() . " peut recevoir des chèques-vacances.<br>";
+        echo "<li>" . $employe->getPrenom() . " peut recevoir des chèques-vacances.</li>";
     } else {
-        echo $employe->getNom() . " " . $employe->getPrenom() . " ne peut pas recevoir des chèques-vacances.<br>";
+        echo "<li>" . $employe->getPrenom() . " ne peut pas recevoir des chèques-vacances.</li>";
     }
 
-    // Calculer et afficher les chèques de Noël
     $chequesNoel = $employe->calculerChequesNoel();
     if (array_sum($chequesNoel) > 0) {
-        echo $employe->getNom() . " " . $employe->getPrenom() . " a droit à des chèques de Noël:<br>";
+        echo "<li>" . $employe->getPrenom() . " a droit à des chèques de Noël:<ul>";
         foreach ($chequesNoel as $montant => $nombre) {
             if ($nombre > 0) {
-                echo "- " . $nombre . " chèque(s) de " . $montant . " €<br>";
+                echo "<li>" . $nombre . " chèque(s) de " . $montant . " €</li>";
             }
         }
+        echo "</ul></li>";
     } else {
-        echo $employe->getNom() . " " . $employe->getPrenom() . " n'a pas droit à des chèques de Noël.<br>";
+        echo "<li>" . $employe->getPrenom() . " n'a pas droit à des chèques de Noël.</li>";
     }
 
-    // Ligne vide pour séparation
-    echo "<br><br>";
+    echo "</ul><hr>";
 }
 ?>
