@@ -21,6 +21,7 @@ echo "Service: " . $employe->getService() . "\n";
 
 // Afficher le nombre d'années de service de l'employé
 echo "L'employé travaille dans l'entreprise depuis " . $employe->anneesDeService() . " années.\n";
-    echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $employe->calculerPrime() . "K euros.\n";
-    $employe->effectuerTransfert();
+echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $employe->calculerPrime() . "K euros.\n";
+$employe->effectuerTransfert();
 }
+?>
