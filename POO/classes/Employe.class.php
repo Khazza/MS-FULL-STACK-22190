@@ -103,7 +103,7 @@ class Employe
     public function effectuerTransfert()
     {
         $dateActuelle = new DateTime();
-        $dateVersement = new DateTime(date("Y") . "-11-30");
+        $dateVersement = new DateTime(date("Y") . "-06-08");
 
         if ($dateActuelle == $dateVersement) {
             $prime = $this->calculerPrime();
