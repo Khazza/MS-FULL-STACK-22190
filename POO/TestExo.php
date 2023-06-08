@@ -1,5 +1,6 @@
 <?php
 include 'classes/Employe.class.php';
+include 'classes/Magasin.class.php';
 
 // Créer un nouvel employé et magasin
 $magasinParis = new Magasin("Jarditou Paris", "123 Rue de Paris", "75001", "Paris");
@@ -8,7 +9,7 @@ $magasinParis3 = new Magasin("Jarditou Nice", "123 Rue de Nice", "06001", "Nice"
 
 $employe1 = new Employe("Case", "Justin", "2020-06-08", "Manager", 40, "Commercial",$magasinParis);
 $employe2 = new Employe("Doe", "John", "2023-06-08", "Secraite", 40, "Commercial",$magasinParis2);
-$employe3 = new Employe("Doe", "Jane", "2023-06-08", "PDG", 40, "Commercial",$magasinParis3);
+$employe3 = new Employe("Doe", "Jane", "2018-02-12", "PDG", 40, "Commercial",$magasinParis3);
 
 // Tableau d'employés
 $employes = [$employe1, $employe2, $employe3];
@@ -35,5 +36,7 @@ $employe->effectuerTransfert();
 
 // Ligne vide de séparation
 echo "<br>";
+echo "<br>";
+
 }
 ?>
