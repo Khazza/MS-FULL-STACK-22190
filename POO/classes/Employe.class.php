@@ -8,9 +8,11 @@ class Employe
     private $fonction;
     private $salaire;
     private $service;
+    private $magasin;
+
     
     // Constructeur
-    public function __construct($nom, $prenom, $dateEmbauche, $fonction, $salaire, $service)
+    public function __construct($nom, $prenom, $dateEmbauche, $fonction, $salaire, $service, $magasin)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -18,6 +20,8 @@ class Employe
         $this->fonction = $fonction;
         $this->salaire = $salaire;
         $this->service = $service;
+        $this->magasin = $magasin;
+
     }
     
     // Accesseurs
@@ -82,6 +86,11 @@ class Employe
         $this->service = $service;
     }
 
+    public function getMagasin()
+    {
+        return $this->magasin;
+    }
+
     // Méthode pour calculer le nombre d'années de service
     public function anneesDeService()
     {
@@ -104,13 +113,14 @@ class Employe
     {
         $dateActuelle = new DateTime();
         $dateVersement = new DateTime(date("Y") . "-06-08");
-
-        if ($dateActuelle == $dateVersement) {
+    
+        if ($dateActuelle->format('m-d') == $dateVersement->format('m-d')) {
             $prime = $this->calculerPrime();
             echo "Ordre de transfert envoyé à la banque pour un montant de " . $prime . "K euros à l'employé " . $this->nom . " " . $this->prenom . ".\n";
         } else {
             echo "Ce n'est pas encore le jour de versement de la prime.\n";
         }
-    }
+    }    
+
 }
 ?>
