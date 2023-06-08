@@ -2,7 +2,7 @@
 include 'classes/Employe.class.php';
 
 // Créer un nouvel employé
-$employe = new Employe("Dupont", "Jean", "2023-06-08", "Manager", 40, "Commercial");
+$employe = new Employe("Case", "Justin", "2023-06-08", "Manager", 40, "Commercial");
 
 // Afficher les informations de l'employé
 echo "Nom: " . $employe->getNom() . "\n";
