@@ -32,6 +32,8 @@ echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $em
 // Transfert
 $employe->effectuerTransfert();
 
+echo "<br>";
+
 // Afficher le magasin de l'employé
 echo "Magasin de l'employé : " . $employe->getMagasin()->getNom() . "<br>";
 
