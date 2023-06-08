@@ -29,13 +29,21 @@ foreach ($employes as $employe) {
 echo "L'employé travaille dans l'entreprise depuis " . $employe->anneesDeService() . " années.<br>";
 echo "Prime de " . $employe->getNom() . " " . $employe->getPrenom() . ": " . $employe->calculerPrime() . "K euros.<br>";
 
+// Transfert
+$employe->effectuerTransfert();
+
 // Afficher le magasin de l'employé
 echo "Magasin de l'employé : " . $employe->getMagasin()->getNom() . "<br>";
 
 // Afficher le mode de restauration de l'employé
 echo "Mode de restauration : " . $employe->getMagasin()->getModeRestauration() . "<br>";
 
-$employe->effectuerTransfert();
+// Afficher si l'employé peut recevoir des chèques-vacances
+if ($employe->peutRecevoirChequesVacances()) {
+    echo $employe->getNom() . " " . $employe->getPrenom() . " peut recevoir des chèques-vacances.\n";
+} else {
+    echo $employe->getNom() . " " . $employe->getPrenom() . " ne peut pas recevoir des chèques-vacances.\n";
+}
 
 // Ligne vide de séparation
 echo "<br>";

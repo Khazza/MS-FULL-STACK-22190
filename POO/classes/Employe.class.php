@@ -99,6 +99,11 @@ class Employe
         $interval = $dateEmbauche->diff($dateActuelle);
         return $interval->y; // Retourne le nombre d'années
     }
+     // Méthode pour vérifier si l'employé peut recevoir des chèques-vacances
+     public function peutRecevoirChequesVacances()
+     {
+         return $this->anneesDeService() >= 1;
+     }
 
     // Méthode pour calculer le montant de la prime
     public function calculerPrime()

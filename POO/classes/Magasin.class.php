@@ -42,5 +42,30 @@ class Magasin
     public function getModeRestauration() {
         return $this->restaurant ? "Restaurant d'entreprise" : "Tickets restaurants";
     }
+
+    // Mutateurs
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+    
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+    
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+    }
+    
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+
+    public function setModeRestauration($restaurant)
+    {
+        $this->restaurant = $restaurant;
+    }
 }
-?>
