@@ -90,5 +90,27 @@ class Employe
         $interval = $dateEmbauche->diff($dateActuelle);
         return $interval->y; // Retourne le nombre d'années
     }
+
+    // Méthode pour calculer le montant de la prime
+    public function calculerPrime()
+    {
+        $annees = $this->anneesDeService();
+        $prime = $this->salaire * (0.05 + 0.02 * $annees);
+        return $prime;
+    }
+
+    // Méthode pour effectuer le transfert à la banque
+    public function effectuerTransfert()
+    {
+        $dateActuelle = new DateTime();
+        $dateVersement = new DateTime(date("Y") . "-11-30");
+
+        if ($dateActuelle == $dateVersement) {
+            $prime = $this->calculerPrime();
+            echo "Ordre de transfert envoyé à la banque pour un montant de " . $prime . "K euros à l'employé " . $this->nom . " " . $this->prenom . ".\n";
+        } else {
+            echo "Ce n'est pas encore le jour de versement de la prime.\n";
+        }
+    }
 }
 ?>
