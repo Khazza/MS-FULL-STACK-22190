@@ -1,16 +1,17 @@
 <?php
-
-class Employe {
-    // Attributs
+class Employe
+{
+    // Propriétés
     private $nom;
     private $prenom;
     private $dateEmbauche;
     private $fonction;
     private $salaire;
     private $service;
-
+    
     // Constructeur
-    public function __construct($nom, $prenom, $dateEmbauche, $fonction, $salaire, $service) {
+    public function __construct($nom, $prenom, $dateEmbauche, $fonction, $salaire, $service)
+    {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->dateEmbauche = $dateEmbauche;
@@ -18,90 +19,76 @@ class Employe {
         $this->salaire = $salaire;
         $this->service = $service;
     }
-
+    
     // Accesseurs
-    public function getNom() {
+    public function getNom()
+    {
         return $this->nom;
     }
-
-    public function getPrenom() {
+    
+    public function getPrenom()
+    {
         return $this->prenom;
     }
-
-    public function getDateEmbauche() {
+    
+    public function getDateEmbauche()
+    {
         return $this->dateEmbauche;
     }
-
-    public function getFonction() {
+    
+    public function getFonction()
+    {
         return $this->fonction;
     }
-
-    public function getSalaire() {
+    
+    public function getSalaire()
+    {
         return $this->salaire;
     }
-
-    public function getService() {
+    
+    public function getService()
+    {
         return $this->service;
     }
-
+    
     // Mutateurs
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->nom = $nom;
     }
-
-    public function setPrenom($prenom) {
+    
+    public function setPrenom($prenom)
+    {
         $this->prenom = $prenom;
     }
-
-    public function setDateEmbauche($dateEmbauche) {
+    
+    public function setDateEmbauche($dateEmbauche)
+    {
         $this->dateEmbauche = $dateEmbauche;
     }
-
-    public function setFonction($fonction) {
+    
+    public function setFonction($fonction)
+    {
         $this->fonction = $fonction;
     }
-
-    public function setSalaire($salaire) {
-        if(is_numeric($salaire) && $salaire > 0) {
-            $this->salaire = $salaire;
-        }
+    
+    public function setSalaire($salaire)
+    {
+        $this->salaire = $salaire;
     }
-
-    public function setService($service) {
+    
+    public function setService($service)
+    {
         $this->service = $service;
     }
 
-
-    // Calcul annee de service
-    public function anneesService() {
+    // Méthode pour calculer le nombre d'années de service
+    public function anneesDeService()
+    {
         $dateEmbauche = new DateTime($this->dateEmbauche);
         $dateActuelle = new DateTime();
-    
         $interval = $dateEmbauche->diff($dateActuelle);
-    
-        return $interval->y;
+        return $interval->y; // Retourne le nombre d'années
     }
-
-
-    // Calcul de la prime
-    public function calculerPrime() {
-        $anciennete = $this->anneesService();
-        $prime = ($this->salaire * 0.05) + ($this->salaire * 0.02 * $anciennete);
-        return $prime;
-    }
-
-    // Émettre l'ordre de transfert
-    public function emettreOrdreDeTransfert() {
-        $dateVersement = new DateTime("now");
-        $dateCible = new DateTime("November 30");
-
-        if ($dateVersement->format('m-d') == $dateCible->format('m-d')) {
-            $montant = $this->calculerPrime();
-            echo "Ordre de transfert de " . $montant . " euros envoyé à la banque pour l'employé " . $this->nom . " " . $this->prenom . ".\n";
-        }
-    }
-    
-
 }
-
 ?>

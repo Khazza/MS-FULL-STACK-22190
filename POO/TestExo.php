@@ -1,12 +1,18 @@
 <?php
-    include 'classes/Employe.class.php';
+include 'classes/Employe.class.php';
 
+// Créer un nouvel employé
+$employe = new Employe("Dupont", "Jean", "2023-06-08", "Manager", 40, "Commercial");
 
-    $employe1 = new Employe("Doe", "Jhon", "2010-06-01", "Manager", 50, "Comptabilité");
-    $employe2 = new Employe("Doe", "Jane", "2015-04-15", "Comptable", 40, "Comptabilité");
-    $employe3 = new Employe("Case", "Justin", "2012-08-24", "Commercial", 45, "Commercial");
+// Afficher les informations de l'employé
+echo "Nom: " . $employe->getNom() . "\n";
+echo "Prénom: " . $employe->getPrenom() . "\n";
+echo "Date d'embauche: " . $employe->getDateEmbauche() . "\n";
+echo "Fonction: " . $employe->getFonction() . "\n";
+echo "Salaire: " . $employe->getSalaire() . "K euros\n";
+echo "Service: " . $employe->getService() . "\n";
 
-    var_dump($employe1);
-    var_dump($employe2);
-    var_dump($employe3);
+// Afficher le nombre d'années de service de l'employé
+echo "L'employé travaille dans l'entreprise depuis " . $employe->anneesDeService() . " années.\n";
+
 ?>
