@@ -107,6 +107,8 @@ SELECT CONCAT(nom, ' ', prenom) AS nom_complet FROM employe;
 
 -- 29. Afficher les 5 premières lettres du nom des employés.
 SELECT LEFT(nom, 5) AS cinq_premieres_lettres FROM employe;
+-- ou
+SELECT SUBSTRING(nom, 1, 5) AS cinq_premieres_lettres FROM employe;
 
 -- 30. Afficher le nom et le rang de la lettre « r » dans le nom des
 -- employés.
